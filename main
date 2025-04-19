@@ -1,0 +1,51 @@
+# Company name: AutoCountry
+# Create a program called: CarFinder
+
+def main():
+
+  allowedVehiclesList = ["Ford F-150", "Chevrolet Silverado", "Tesla CyberTruck", "Toyota Tundra", "Nissan Titan", "Rivian R1T", "Ram 1500"]
+
+  while True:
+    print ("********************************")
+    print ("AutoCountry Vehicle Finder v0.4")
+    print ("********************************")
+    print("Please Enter the following number below from the following menu: ")
+    print ("\n1. PRINT all Authorized Vehicles")
+    print ("2. SEARCH for Authorized Vehicle")
+    print ("3. ADD authorized vehicle")
+    print ("4. DELETE authorized vehicle")
+    print ("5. Exit")
+    print ("********************************")
+    userInput = input("Enter selection: ")
+    
+    if userInput == "1":
+      print("\nThe AutoCountry sales manager has authorized the purchase and selling of the following vehicles:")
+      for vehicle in allowedVehiclesList:
+        print(vehicle)
+
+    elif userInput == "2":
+      vehicleSearch = input("Please Enter the full Vehicle name: ")
+      if vehicleSearch in allowedVehiclesList:
+        print(f"\n{vehicleSearch} is an authorized vehicle")
+      else:
+        print(f"\n{vehicleSearch} is not an authorized vehicle, if you received this in error please check the spelling and try again")
+
+    elif userInput == "3":
+      newVehicle = input("Please Enter the full Vehicle name you would like to add: ")
+      allowedVehiclesList.append(newVehicle)
+      print(f'\nYou have added "{newVehicle}" as an authorized vehicle')
+
+    elif userInput == "4":
+      deleteVehicle = input("Please Enter the full Vehicle name you would like to REMOVE: ")
+      if deleteVehicle in allowedVehiclesList:
+        confirm = input(f'\nAre you sure you want to remove "{deleteVehicle}" from the Authorized Vehicles List?')
+        if confirm == "yes":
+          allowedVehiclesList.remove(deleteVehicle)
+          print(f'You have REMOVED "{deleteVehicle}" as an authorized vehicle')
+
+    elif userInput == "5":
+      print("\nThank you for using the AutoCountry Vehicle Finder, good-bye!")
+      break
+
+if __name__ == "__main__":
+  main()
